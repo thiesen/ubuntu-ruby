@@ -1,6 +1,6 @@
-FROM ubuntu:RUN
+FROM ubuntu:xenial
 
-xenial apt-get update \
+RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
 		bzip2 \
 		ca-certificates \
@@ -10,6 +10,12 @@ xenial apt-get update \
 		libyaml-dev \
 		procps \
 		zlib1g-dev \
+    build-essential \
+    libcurl3-gnutls \
+    libcurl4-openssl-dev \
+    libxrender1 \
+    libjpeg8 \
+    libfontconfig1 \
 	&& rm -rf /var/lib/apt/lists/*
 
 # skip installing gem documentation
@@ -19,9 +25,9 @@ RUN mkdir -p /usr/local/etc \
 		echo 'update: --no-document'; \
 	} >> /usr/local/etc/gemrc
 
-ENV RUBY_MAJOR 2.5
-ENV RUBY_VERSION 2.5.3
-ENV RUBY_DOWNLOAD_SHA256 1cc9d0359a8ea35fc6111ec830d12e60168f3b9b305a3c2578357d360fcf306f
+ENV RUBY_MAJOR 2.4
+ENV RUBY_VERSION 2.4.1
+ENV RUBY_DOWNLOAD_SHA256 4fc8a9992de3e90191de369270ea4b6c1b171b7941743614cc50822ddc1fe654
 ENV RUBYGEMS_VERSION 2.7.8
 ENV BUNDLER_VERSION 1.17.2
 
