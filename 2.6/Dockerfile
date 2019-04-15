@@ -18,6 +18,7 @@ RUN apt-get update \
     libfontconfig1 \
     wget \
     autoconf \
+    libreadline-dev \
 	&& rm -rf /var/lib/apt/lists/*
 
 ENV RUBY_MAJOR 2.6
